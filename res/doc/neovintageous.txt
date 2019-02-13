@@ -131,8 +131,8 @@ before  being run and they accept args in a key=value format: >
     nnoremap <leader>p :ShowOverlay overlay=goto show_files=true<CR>
     nnoremap <leader>f :ShowOverlay overlay=goto text=@<CR>
 
-Super-keys, known as windows-keys or command-keys, are disabled by default,
-but can be mapped via the `<D-...>` special keys: >
+Super-keys, known as windows-keys or command-keys can be mapped via the
+`<D-...>` special keys: >
 
     nnoremap <D-i> :GotoSymbolInProject<CR>
 
@@ -162,7 +162,7 @@ Here is an example neovintageous file: >
     " Show me the symbols.
     nnoremap <leader>f :ShowOverlay overlay=goto text=@<CR>
     nnoremap <leader>i :GotoSymbolInProject<CR>
-    " Or if you're using super-keys (disabled by default):
+    " Or using a super-key:
     nnoremap <D-i> :GotoSymbolInProject<CR>
     " Edit rc file.
     nnoremap <leader>en :Neovintageous action=open_rc_file<CR>
@@ -448,7 +448,7 @@ List of available options:
 
                                                  *'vintageous_use_super_keys'*
 'vintageous_use_super_keys'
-                        boolean (default off)
+                        boolean (default on)
         Enable key bindings prefaced by the super-key, otherwise known as the
         command-key in OSX, and as the windows-key in Windows.
 
