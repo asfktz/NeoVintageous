@@ -116,15 +116,11 @@ def _init_backwards_compat_fixes():
         preferences = sublime.load_settings('Preferences.sublime-settings')
         build_version = int(preferences.get('neovintageous_build_version', 0))
 
-        # TODO Remove backwards compatability fix in a future version
-        if build_version < 11000:
-            preferences.set('neovintageous_build_version', 11000)
+        # TODO Remove backwards compatability fix in a later minor version
+        if build_version < 20000:
             preferences.set('vintageous_use_ctrl_keys', preferences.get('vintageous_use_ctrl_keys'))
             preferences.set('vintageous_use_super_keys', preferences.get('vintageous_use_super_keys'))
-            sublime.save_settings('Preferences.sublime-settings')
 
-        # TODO Remove backwards compatability fix in a future version
-        if build_version < 11100:
             def _migrate_rcfile():
                 old_file = os.path.join(sublime.packages_path(), 'User', '.vintageousrc')
                 new_file = os.path.join(sublime.packages_path(), 'User', '.neovintageousrc')
@@ -135,8 +131,10 @@ def _init_backwards_compat_fixes():
                         os.rename(old_file, new_file)
 
             _migrate_rcfile()
-            preferences.set('neovintageous_build_version', 11100)
+
+            preferences.set('neovintageous_build_version', 20000)
             sublime.save_settings('Preferences.sublime-settings')
+
     except Exception:
         import traceback
         traceback.print_exc()
