@@ -35,7 +35,7 @@
     // Visual bell style type.
     // Valid values are: blink, view, or views.
     // {not in Vim}
-    "vintageous_bell": "blink",
+    "vintageous_bell": "view",
 
     // Visual bell color scheme.
     // Valid values are: "dark", "light", or color scheme path. The color scheme
