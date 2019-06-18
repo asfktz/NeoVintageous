@@ -313,23 +313,7 @@ def get_text_object_region(view, s, text_object, inclusive=False, count=1):
         if inclusive:
             return Region(opening.a, closing.b)
 
-        a = opening.a + 1
-        if view.substr(a) == '\n':
-            a += 1
-
-        b = closing.b - 1
-
-        if b > a:
-            line = view.line(b)
-            if next_non_blank(view, line.a) + 1 == line.b:
-                row_a, col_a = view.rowcol(a)
-                row_b, col_b = view.rowcol(b)
-                if (row_b - 1) > row_a:
-                    line = view.full_line(view.text_point((row_b - 1), 0))
-
-                    return Region(a, line.b)
-
-        return Region(a, b)
+        return Region(opening.a + 1, closing.b - 1)
 
     if type_ == QUOTE:
         # Vim only operates on the current line.
